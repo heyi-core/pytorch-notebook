@@ -10,6 +10,22 @@ docker run --rm -it  \
            -p 8888:8888  \
            -e JUPYTER_TOKEN=passwd  \
            tverous/pytorch-notebook:latest
+
+docker run -idt --restart=always  \
+        --cap-add=SYS_PTRACE \
+        --env JUPYTER_TOKEN="heyi123" \
+        --env OMP_NUM_THREADS="20" \
+        --env KMP_AFFINITY="granularity=fine,verbose,compact,1,0" \
+        --env KMP_BLOCKTIME="0" \
+        --env NPM_CONFIG_CACHE=/root/.cache/npm \
+        --name="mlwb" \
+        -v /data1/workspace:/workspace \
+        -v /data1/cache:/root/.cache \
+        -p 8888:8888 \
+        -p 88:80 \
+        --gpus all  --cpus=20  --shm-size=60G \
+        --log-opt mode=non-blocking --log-opt max-buffer-size=4m \
+        tverous/pytorch-notebook:latest
 ```
 
 ### Start the container with GPUs support:
