@@ -11,7 +11,9 @@ RUN apt update && apt install -y \
     python3-pip \
     apt-utils \
     vim \
-    git 
+    git \
+    nodejs \
+    npm
 
 # alias python='python3'
 RUN ln -s /usr/bin/python3 /usr/bin/python
