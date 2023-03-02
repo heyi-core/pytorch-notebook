@@ -1,6 +1,6 @@
 # Jupyter Notebook with Pytorch
-git config  user.name "heyi"
-git config  user.email "805407646@qq.com"
+git config --global user.name "heyi"
+git config --global user.email "805407646@qq.com"
 
 
 This docker image supports with jupyter, pytorch and cuda.
