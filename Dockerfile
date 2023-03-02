@@ -26,7 +26,8 @@ RUN pip install \
     jupyterlab-git \
     transformers \
     datasets \
-    evaluate
+    evaluate \
+    accelerate
 
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8080", "--allow-root", "--no-browser"]
 EXPOSE 8080
