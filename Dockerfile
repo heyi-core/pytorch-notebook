@@ -19,7 +19,10 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN pip install \
     numpy \
     torch \
-    jupyterlab
+    jupyterlab \
+    transformers \
+    datasets \
+    evaluate
 
-CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--allow-root", "--no-browser"]
-EXPOSE 8888
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8080", "--allow-root", "--no-browser"]
+EXPOSE 8080
