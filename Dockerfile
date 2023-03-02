@@ -24,6 +24,7 @@ RUN pip install \
     jupyterlab \
     jupyterlab-language-pack-zh-CN \
     jupyterlab-git \
+    jupyter-resource-usage \
     transformers \
     datasets \
     evaluate \
