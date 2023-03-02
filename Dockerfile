@@ -7,7 +7,7 @@ ENV SHELL=/bin/bash
 WORKDIR /workspace/
 
 # Build with some basic utilities
-RUN apt-get update && apt-get install -y \
+RUN apt update && apt install -y \
     python3-pip \
     apt-utils \
     vim \
