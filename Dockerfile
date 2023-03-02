@@ -10,7 +10,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Create a working directory
 WORKDIR /workspace/
 
-# Build with some basic utilities
+# Build with some basic utilities 
 RUN apt update && apt install -y \
     python3-pip \
     apt-utils \
