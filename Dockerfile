@@ -23,6 +23,7 @@ RUN pip install \
     torch \
     jupyterlab \
     jupyterlab-language-pack-zh-CN \
+    jupyterlab-git \
     transformers \
     datasets \
     evaluate
