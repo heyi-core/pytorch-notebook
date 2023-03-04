@@ -2,6 +2,7 @@ FROM nvidia/cuda:11.7.1-base-ubuntu20.04
 
 # Set bash as the default shell
 ENV SHELL=/bin/bash
+ENV TZ=Asia/Shanghai
 
 # Create a working directory
 WORKDIR /workspace/
