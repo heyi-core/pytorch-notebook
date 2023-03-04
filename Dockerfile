@@ -29,6 +29,7 @@ RUN pip install \
     datasets \
     evaluate \
     jupyterlab-search-replace \
+    jupyterlab-code-formatter \
     accelerate
 
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8080", "--allow-root", "--no-browser"]
