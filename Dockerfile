@@ -14,8 +14,11 @@ RUN apt update && apt install -y \
     apt-utils \
     vim \
     git \
-    nodejs \
-    npm
+    curl \
+    
+RUN curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh && \
+    apt install -y nodejs npm
+    
 
 # alias python='python3'
 RUN ln -s /usr/bin/python3 /usr/bin/python
