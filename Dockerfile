@@ -14,7 +14,7 @@ RUN apt update && apt install -y \
     apt-utils \
     vim \
     git \
-    curl \
+    curl
     
 RUN curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh && \
     apt install -y nodejs npm
