@@ -37,6 +37,7 @@ RUN pip install \
     evaluate \
     jupyterlab-search-replace \
     jupyterlab-code-formatter \
+    jupyterlab-miami-nights \
     accelerate
 
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8080", "--allow-root", "--no-browser"]
