@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.7.1-base-ubuntu22.04
+FROM nvidia/cuda:11.7.1-devel-ubuntu22.04
 # python3.10-ubuntu22.04
 
 # Set bash as the default shell
