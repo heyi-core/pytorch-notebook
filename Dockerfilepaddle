@@ -8,7 +8,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /workspace/
 
-RUN apt install zsh
+RUN apt install zsh -y
+
 RUN python3.7 -m pip install --upgrade pip
 
 RUN pip install pyzmq  ipykernel --upgrade
