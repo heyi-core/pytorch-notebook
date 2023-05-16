@@ -1,0 +1,30 @@
+FROM registry.baidubce.com/paddlepaddle/paddle:2.4.2-gpu-cuda11.7-cudnn8.4-trt8.4
+# python3.7
+
+# Set bash as the default shell
+ENV SHELL=/bin/bash
+ENV TZ=Asia/Shanghai
+ARG DEBIAN_FRONTEND=noninteractive
+
+WORKDIR /workspace/
+
+RUN apt install zsh
+RUN python3.7 -m pip install --upgrade pip
+
+RUN pip install pyzmq  ipykernel --upgrade
+
+RUN pip install \
+    jupyterlab \
+    jupyterlab-language-pack-zh-CN \
+    jupyterlab-git \
+    jupyter-resource-usage \
+    jupyterlab-search-replace \
+    jupyterlab-code-formatter \
+    jupyterlab-miami-nights \
+    black \
+    isort
+    
+RUN pip install fastdeploy-gpu-python -f https://www.paddlepaddle.org.cn/whl/fastdeploy.html
+    
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8080", "--allow-root", "--no-browser"]
+EXPOSE 8080
