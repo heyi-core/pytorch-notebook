@@ -1,4 +1,4 @@
-FROM python3.10-ubuntu22.04
+FROM ubuntu:22.04
 # python3.10-ubuntu22.04
 
 # Set bash as the default shell
@@ -37,6 +37,6 @@ RUN pip install \
     jupyterlab-miami-nights \
     black \
     isort
-    
+
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8080", "--allow-root", "--no-browser"]
 EXPOSE 8080
