@@ -29,7 +29,7 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 
 RUN pip install \
     numpy \
-    torch \
+    torch==2.0.1 \
     transformers \
     datasets \
     evaluate \
