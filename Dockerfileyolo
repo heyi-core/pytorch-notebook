@@ -1,0 +1,23 @@
+FROM ultralytics/ultralytics
+
+# Set bash as the default shell
+ENV SHELL=/bin/bash
+ENV TZ=Asia/Shanghai
+ARG DEBIAN_FRONTEND=noninteractive
+
+# Create a working directory
+WORKDIR /workspace/
+
+RUN pip install \
+    jupyterlab \
+    jupyterlab-language-pack-zh-CN \
+    jupyterlab-git \
+    jupyter-resource-usage \
+    jupyterlab-search-replace \
+    jupyterlab-code-formatter \
+    jupyterlab-miami-nights \
+    jupyterlab-miami-nights \
+    black \
+    isort
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8080", "--allow-root", "--no-browser"]
+EXPOSE 8080
