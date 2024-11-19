@@ -1,36 +1,34 @@
 FROM nvidia/cuda:12.1.0-devel-ubuntu22.04
-# python3.10-ubuntu22.04
 
-# Set bash as the default shell
-ENV SHELL=/bin/bash
-ENV TZ=Asia/Shanghai
-ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64
-ARG DEBIAN_FRONTEND=noninteractive
+# 设置环境变量
+ENV SHELL=/bin/bash \
+    TZ=Asia/Shanghai \
+    LD_LIBRARY_PATH=/usr/local/cuda/lib64 \
+    DEBIAN_FRONTEND=noninteractive
 
+# 工作目录
 WORKDIR /workspace/
 
+# 更新 apt 并安装基础工具
 RUN apt update && apt install -y \
     python3-pip \
     apt-utils \
     vim \
     git \
     wget \
-    curl
-    
-RUN ln -s /usr/bin/python3 /usr/bin/python
+    curl && \
+    ln -s /usr/bin/python3 /usr/bin/python && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-RUN pip install \
-    torch \
-    transformers \
-    accelerate \
-    jupyterlab \
-    jupyterlab-language-pack-zh-CN \
-    jupyterlab-git \
-    jupyter-resource-usage \
-    jupyterlab-search-replace \
-    jupyterlab-code-formatter \
-    jupyterlab-miami-nights \
-    black \
-    isort
+# 分阶段安装 pip 包，避免冲突和减少层数
+RUN pip install --no-cache-dir torch transformers accelerate && \
+    pip install --no-cache-dir jupyterlab jupyterlab-language-pack-zh-CN jupyterlab-git && \
+    pip install --no-cache-dir jupyter-resource-usage jupyterlab-search-replace jupyterlab-code-formatter jupyterlab-miami-nights && \
+    pip install --no-cache-dir black isort
+
+# 设置 Jupyter Lab 启动命令
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8080", "--allow-root", "--no-browser"]
+
+# 暴露端口
 EXPOSE 8080
